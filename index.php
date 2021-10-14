@@ -20,27 +20,31 @@ class Bagetomat
     
     public function insertCoin(int $insertedCoins)
     {   $this->insertedCoins = $insertedCoins;
-        if ($insertedCoins >= $this->productPrice) {  
-        $this->productCount--;
-        $this->makeOrder();
-        } 
-     else {echo "socko";}
+        if ($this->productCount >= 1 )
+        {
+          if ($insertedCoins >= $this->productPrice) {  
+            $this->productCount--;
+            $this->makeOrder();
+          } 
+          else {echo "socko";}
+        }
+        else {echo "bagety nejsou";}
     }
     
     public function makeOrder()
     {
      if ($this->insertedCoins > $this->productPrice) {
-        $this->returnCoins = $this->insertedCoins - $this->productPrice;
+         $this->returnCoins = $this->insertedCoins - $this->productPrice;
         echo "tady je vaše bageta +". $this->returnCoins. "kč";}
      else {echo "tady je vaše bageta";} 
     }
 }
 
-$purchase1  = new Bagetomat(1, 50, 0);
+$purchase1  = new Bagetomat(5, 50, 100);
 try
 {$purchase1->insertCoin(60);}
 catch (\Throwable $th) {
-    echo "error:" . $th->getMessage();}
+    echo  $th->getMessage();}
 
 ?>
 </body>
