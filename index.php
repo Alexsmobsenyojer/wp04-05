@@ -36,7 +36,7 @@ class Bagetomat
      if ($this->insertedCoins > $this->productPrice) {
          $this->returnCoins = $this->insertedCoins - $this->productPrice;
         echo "tady je vaše bageta +". $this->returnCoins. "kč";}
-     else {echo "tady je vaše bageta";} 
+     else {echo "tady je vaše bagetaa";} 
     }
 }
 
