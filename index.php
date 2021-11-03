@@ -12,17 +12,18 @@ class Bagetomat
 {
     public int $productCount;
     public int $productPrice;
-    public int $insertedCoins;
+    public int $insertedCoins = 0;
     public int $returnCoins;
+    public int $bank;
+
+    public function constructor__(int $productCount,int $productPrice,int $bank)
+    {$this->productCount = $productCount; $this->productPrice = $productPrice; $this->bank = $bank;}
     
-    public function constructor__(int $productCount,int $productPrice,int $returnCoins)
-    {$this->productCount = $productCount; $this->productPrice = $productPrice;$this->returnCoins = $returnCoins;}
-    
-    public function insertCoin(int $insertedCoins)
-    {   $this->insertedCoins = $insertedCoins;
+    public function insertCoin(int $Coin)
+    {   $this->insertedCoins += $Coin;
         if ($this->productCount >= 1 )
         {
-          if ($insertedCoins >= $this->productPrice) {  
+          if ($this->insertedCoins >= $this->productPrice) {  
             $this->productCount--;
             $this->makeOrder();
           } 
@@ -33,19 +34,23 @@ class Bagetomat
     
     public function makeOrder()
     {
-     if ($this->insertedCoins > $this->productPrice) {
-         $this->returnCoins = $this->insertedCoins - $this->productPrice;
-        echo "tady je vaše bageta +". $this->returnCoins. "kč";}
-     else {echo "tady je vaše bagetaa";} 
+     if ($this->insertedCoins > $this->productPrice) 
+     {
+        $this->returnCoins = $this->insertedCoins - $this->productPrice;
+         
+         if($this->bank > $this->returnCoins ){echo "tady je vaše bageta +". $this->returnCoins. "kč";}
+         else {echo "nemame na vraceni".$this->returnCoins ."kč SMŮLA :)";}
+     }
+     else {echo "tady je vaše bageta";} 
     }
 }
 
-$purchase1  = new Bagetomat(5, 50, 100);
+$purchase1  = new Bagetomat(5,50,100);
+
 try
 {$purchase1->insertCoin(60);}
 catch (\Throwable $th) {
     echo  $th->getMessage();}
-
 
 ?>
 </body>
