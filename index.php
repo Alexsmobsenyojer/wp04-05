@@ -16,7 +16,7 @@ class Bagetomat
     public int $returnCoins = 0;
     public int $bank;
 
-    public function _construct(int $productCount,int $productPrice,int $bank)
+    public function __construct(int $productCount,int $productPrice,int $bank)
     {$this->productCount = $productCount; $this->productPrice = $productPrice; $this->bank = $bank;}
     
     public function insertCoin(int $Coin)
