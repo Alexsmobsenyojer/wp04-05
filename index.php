@@ -10,10 +10,10 @@
 <?php
 class Bagetomat 
 {
-    private int $productCount;
-    private int $productPrice;
-    private int $insertedCoins;
-    private int $returnCoins;
+    public int $productCount;
+    public int $productPrice;
+    public int $insertedCoins;
+    public int $returnCoins;
     
     public function constructor__(int $productCount,int $productPrice,int $returnCoins)
     {$this->productCount = $productCount; $this->productPrice = $productPrice;$this->returnCoins = $returnCoins;}
