@@ -8,7 +8,7 @@
 </head>
 <body>
 <?php
-
+require_once 'bagetomat.php';
 
 $purchase1  = new Bagetomat(5,50,100);
 
