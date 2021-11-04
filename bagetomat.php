@@ -10,8 +10,8 @@ class Bagetomat
     public function __construct(int $productCount,int $productPrice,int $bank)
     {$this->productCount = $productCount; $this->productPrice = $productPrice; $this->bank = $bank;}
     
-    public function insertCoin(int $Coin)
-    {   $this->insertedCoins += $Coin;
+    public function insertCoin(int $coin)
+    {   $this->insertedCoins += $coin;
         if ($this->productCount >= 1 )
         {
           if ($this->insertedCoins >= $this->productPrice) {  
